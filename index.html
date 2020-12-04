@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Secret Mission: 101</title>
+  
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <script src="jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <script type="text/javascript" src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+</head>
+<body id="demo">
+  	
+<div id="page">
+  
+  <div id="header">Secret Mission: 101</div>
+  <div id="menu">
+    <div class="sidenav">
+      <button class="dropdown-btn">How to choose your browser theme 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <p id="YIKE">By clicking on light or dark theme button, you can make it easier for your eyes, depeding on the time of the day.</p>
+      </div>
+      <button class="dropdown-btn">TextToSpeech
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <p id="YIKE2">Every message you send to chat, will be read out loud, that way you don't have to worry about your team memebers not seeing your commands.</p>
+      </div>
+      <button class="dropdown-btn">How to change your font
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <p id="YIKE3">You can also choose your font, so if you have dyslexia, we made it easy for you.</p>
+      </div>
+      <button class="dropdown-btn">How to change your font size
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        <p id="YIKE4">Do you feel font is too small? Don't worry, we got you covered.</p>
+      </div>
+      
+    </div>
+    <script>
+      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+      
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+        });
+      }
+      </script>
+  </div>
+  <div id="content">
+    <div id="message-container"></div>
+    <form id="send-container">
+      <input type="text" id="message-input">
+      <button onclick="speakText()" type="submit" id="send-button">Send</button>
+    </form>
+    <script>
+      function speakText(){
+          var text = document.getElementById('message-input').value;
+          responsiveVoice.speak(text);
+          
+      }
+    </script>
+  </div>
+
+  <div id="action">
+    <p id="jaomeni">SETTINGS</p>
+    <p>Change your font size:</p>
+    <button id="buttons1" type="button" onclick="myFunction()">Large size</button>
+    <button id="buttons2" type="button" onclick="myFunction2()">Normal size</button>
+    <p id="saveme">Choose your prefered font:</p>
+    <button id="buttons3" type="button" onclick="myFunction3()">Dyslexic font</button>
+    <button id="buttons4" type="button" onclick="myFunction4()">Normal font</button>
+    <p id="savemebogme">Choose your theme:</p>
+    <button id="buttons5" type="button" onclick="myFunction5()">Light Theme</button>
+    <button id="buttons6" type="button" onclick="myFunction6()">Dark Theme</button>
+  </div>
+  <div id="footer"></div>
+ </div>
+
+</body>
+</html>
